@@ -32,11 +32,12 @@
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <form action="https://formspree.io/f/mnndwloy" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send</button>
+      <p id="form-status"></p>
     </form>
   </section>
 
@@ -47,5 +48,30 @@
       <a href="https://instagram.com/"><img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png"/></a>
     </div>
   </footer>
+
+  <script>
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch("https://formspree.io/f/mnndwloy", {
+          method: "POST",
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          status.textContent = "Thanks! Your message was sent.";
+          form.reset();
+        } else {
+          status.textContent = "Oops! Something went wrong.";
+        }
+      } catch (err) {
+        status.textContent = "Error sending form.";
+      }
+    });
+  </script>
 </body>
 </html>
