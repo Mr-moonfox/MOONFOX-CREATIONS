@@ -1,0 +1,65 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fffaf6;
+}
+header {
+  background: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+  position: relative;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+nav .dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  color: black;
+  top: 25px;
+}
+nav .dropdown:hover .dropdown-content {
+  display: block;
+}
+.slider img {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+form input, form textarea {
+  margin: 5px 0;
+  padding: 10px;
+  font-size: 16px;
+}
+form button {
+  background: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+}
+.social-icons img {
+  width: 30px;
+  margin: 5px;
+}
